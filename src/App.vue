@@ -2,8 +2,10 @@
   <div id="app">
     <Header class="header"></Header>
     <div class="main">
-      <router-view name="slidebar"></router-view>
-      <router-view name="Detail"></router-view>
+      <Sidebar class="sidebar"></Sidebar>
+      <Detail class="detail"></Detail>
+      <!-- <router-view name="slidebar"></router-view>
+      <router-view name="Detail"></router-view>-->
     </div>
     <Footer class="footer"></Footer>
   </div>
@@ -27,23 +29,26 @@ export default {
 };
 </script>
 <style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 html,
 body {
   width: 100%;
   height: 100%;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 #app {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: 15% auto 15%;
+  grid-template-columns: 10% auto 10%;
   grid-template-rows: 10% 80% 10%;
   grid-template-areas:
     ". header ."
-    ". main ."
+    "main main main"
     ". footer .";
 }
 .header {
@@ -53,10 +58,12 @@ body {
 .main {
   grid-area: main;
   border: 1px solid black;
+  display: flex;
 }
 .sidebar {
   grid-area: sidebar;
   border: 1px green solid;
+  /* width: 15%; */
 }
 .footer {
   grid-area: footer;
